@@ -1,0 +1,81 @@
+#!/bin/bash
+
+#
+# Automate creating new react based projects projects
+# Author: @damiensedgwick
+#
+
+function create() {
+    # ask the user what kind of project they would like to set up
+    PS3="Please select what type of project you would like to create (1-4): "
+    select i in react nextjs gatsby exit
+    do
+        case $i in
+            react)
+                echo "*****************************************************************"
+                echo ""
+                echo "Creating a new project using the create-react-app bootstrap"
+                echo ""
+                echo "*****************************************************************"
+                npx create-react-app $1
+                break
+                ;;
+            nextjs)
+                echo "*****************************************************************"
+                echo ""
+                echo "Creating a new project using the create-next-app bootstrap"
+                echo ""
+                echo "*****************************************************************"
+                npx create-next-app $1
+                break
+                ;;
+            gatsby)
+                echo "*****************************************************************"
+                echo ""
+                echo "Creating a new project using the gatsby default starter"
+                echo ""
+                echo "*****************************************************************"
+                npx gatsby new $1
+                break
+                ;;
+            exit) exit;;
+        esac
+    done
+
+    echo "*****************************************************************"
+    echo ""
+    echo "Finished creating your new project. Trying to launch vscode"
+    echo ""
+    echo "*****************************************************************"
+
+    # change into directory and launch vscode
+    cd "$1"
+
+    if output=$(code .); then
+        echo "*****************************************************************"
+        echo ""
+        echo "Succesfully launched vscode, exiting the program."
+        echo ""
+        echo "*****************************************************************"
+    else
+        echo "*****************************************************************"
+        echo ""
+        echo "Unable to launch vscode, please launch your text editor manually."
+        echo ""
+        echo "*****************************************************************"
+    fi
+
+    exit 0;
+}
+
+# Throw error if no argument is provided for project name and exit the program
+if [[ ! "$1" ]]; then
+    echo "ERROR: No project name provided, exiting" && exit 1
+fi
+
+# Throw an error if there is already a project with the name provided
+if [[ -d "$1" ]]; then
+    echo "ERROR: Project name in use, exiting" && exit 1
+else
+    create "$1"
+fi
