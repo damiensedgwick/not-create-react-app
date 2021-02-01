@@ -23,6 +23,14 @@ mv create /Users/username/bin # MacOS
 
 mv create /home/username/bin # Linux
 
+# running the script
+
+create project-name # if you have added the script to your path (global)
+
+./create project-name # from the project directory and if you haven't added the script to your path
+
+# selete the option you wish to proceed with
+
 ```
 <br />
 
