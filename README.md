@@ -20,6 +20,7 @@ git clone https://github.com/damiensedgwick/not-create-react-app.git
 cd not-create-react-app
 
 # change the project path variable so that the output is where you would like the project to out to.
+project_path="/Users/user/project/path/" # change this path so that it builds to your chosen directory
 
 # change script permissions so that you can execute it
 chmod +x ./create
