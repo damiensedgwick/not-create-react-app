@@ -1,33 +1,31 @@
 # not-create-react-app
-A simple bash script to automate creating a new React based project and opening the VS Code text editor.
-
-<br />
 
 ## Description:
-The main goal for this script is to eventually have it call a node script that will log the user in to github, create a repository and publish the fresh project to the newly created repository.
+A simple bash script to automate creating a new React based project, creating and pushing to a github repository and then opening the VS Code text editor inside your new project. This project depends on the user having the [Github CLI Tools](https://cli.github.com/) installed so that creating a repository can be done from the command line.
 
 <br />
 
 ## Getting Started:
-```bash
 
-# cloning the repository.
-git clone https://github.com/damiensedgwick/not-create-react-app.git
+Clone the repository:
+`git clone https://github.com/damiensedgwick/not-create-react-app.git`
 
-# change directory into the project folder and move create script to bin folder
-cd not-create-react-app
+Change directory into the project folder and move create script to users bin folder:
+`cd not-create-react-app && mv create /Users/user/bin`
 
-# change the project path variable so that the output is where you would like the project to out to.
-project_path="/Users/user/project/path/" # change this path so that it builds to your chosen directory
+Change script permissions so that you can execute it:
+`chmod +x /Users/user/bin/create`
 
-# change script permissions so that you can execute it
-chmod +x ./create
+Make sure your bin folder is exported to path:
+`echo "export PATH="$PATH:/Users/user/bin/"" >> .bashrc`
 
-./create project-name # from the project directory and if you haven't added the script to your path
+You should now be able to run `create project-name` from your command line and go through the steps of choosing a framework for your project, pushing to github and opening vscode with just one command.
 
-# selete the option you wish to proceed with and #Profit
+<br />
 
-```
+## Issues
+If you experience any issues getting this script working please make sure you have all the the tools mentioned for it to work properly as well as making sure your path is correct and bin exported correctly. If you're still stuck, reach out and I will do my best to help.
+
 <br />
 
 ## Contributions
