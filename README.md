@@ -12,11 +12,9 @@ The main goal for this script is to eventually have it call a node script that w
 ```bash
 
 # cloning the repository.
-
 git clone https://github.com/damiensedgwick/not-create-react-app.git
 
 # change directory into the project folder and move create script to bin folder
-
 cd not-create-react-app
 
 # change the project path variable so that the output is where you would like the project to out to.
