@@ -5,7 +5,7 @@
 # Author: @damiensedgwick
 #
 
-project_path="/Users/user/project/path/" # change this path so that it builds to your chosen directory
+project_path="/Users/user/projects/" # change this path so that it builds to your chosen directory.
 
 function create() {
     # ask the user what kind of project they would like to set up
@@ -24,7 +24,6 @@ function create() {
                 echo "Creating a new project using the create-react-app bootstrap"
                 echo ""
                 echo "*****************************************************************"
-                cd "$project_path"
                 npx create-react-app $project_path$1
                 break
                 ;;
@@ -34,7 +33,6 @@ function create() {
                 echo "Creating a new project using the create-next-app bootstrap"
                 echo ""
                 echo "*****************************************************************"
-                cd "$project_path"
                 npx create-next-app $project_path$1
                 break
                 ;;
@@ -44,7 +42,6 @@ function create() {
                 echo "Creating a new project using the gatsby default starter"
                 echo ""
                 echo "*****************************************************************"
-                cd "$project_path"
                 npx gatsby new $project_path$1
                 break
                 ;;
@@ -52,15 +49,29 @@ function create() {
         esac
     done
 
+    # change into project directory
+    cd "$project_path$1"
+
+    echo "*****************************************************************"
+    echo ""
+    echo "Creating a new repository using Github CLI Tools"
+    echo ""
+    echo "*****************************************************************"
+
+    # create new repository using gh cli tools
+    gh repo create
+    git add .
+    git commit -m "Initialised project for $1"
+    git branch -M main
+    git push -u origin main
+
     echo "*****************************************************************"
     echo ""
     echo "Finished creating your new project. Trying to launch vscode"
     echo ""
     echo "*****************************************************************"
 
-    # change into directory and launch vscode
-    cd "$project_path$1"
-
+    # launch vscode
     if output=$(code .); then
         echo "*****************************************************************"
         echo ""
