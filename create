@@ -5,6 +5,8 @@
 # Author: @damiensedgwick
 #
 
+project_path="/Users/user/project/path/" # change this path so that it builds to your chosen directory
+
 function create() {
     # ask the user what kind of project they would like to set up
     echo "*****************************************************************"
@@ -22,7 +24,8 @@ function create() {
                 echo "Creating a new project using the create-react-app bootstrap"
                 echo ""
                 echo "*****************************************************************"
-                npx create-react-app $1
+                cd "$project_path"
+                npx create-react-app $project_path$1
                 break
                 ;;
             nextjs)
@@ -31,7 +34,8 @@ function create() {
                 echo "Creating a new project using the create-next-app bootstrap"
                 echo ""
                 echo "*****************************************************************"
-                npx create-next-app $1
+                cd "$project_path"
+                npx create-next-app $project_path$1
                 break
                 ;;
             gatsby)
@@ -40,7 +44,8 @@ function create() {
                 echo "Creating a new project using the gatsby default starter"
                 echo ""
                 echo "*****************************************************************"
-                npx gatsby new $1
+                cd "$project_path"
+                npx gatsby new $project_path$1
                 break
                 ;;
             exit) exit;;
@@ -54,7 +59,7 @@ function create() {
     echo "*****************************************************************"
 
     # change into directory and launch vscode
-    cd "$1"
+    cd "$project_path$1"
 
     if output=$(code .); then
         echo "*****************************************************************"

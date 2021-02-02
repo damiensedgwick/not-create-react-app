@@ -19,15 +19,10 @@ git clone https://github.com/damiensedgwick/not-create-react-app.git
 
 cd not-create-react-app
 
-mv create /Users/username/bin # MacOS
+# change the project path variable so that the output is where you would like the project to out to.
 
-mv create /home/username/bin # Linux
-
-# running the script
-
-create project-name # if you have added the script to your path (global)
-
-# or
+# change script permissions so that you can execute it
+chmod +x ./create
 
 ./create project-name # from the project directory and if you haven't added the script to your path
 
