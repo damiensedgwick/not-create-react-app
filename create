@@ -1,13 +1,18 @@
 #!/bin/bash
 
 #
-# Automate creating new react based projects
+# Automate creating new react based projects projects
 # Author: @damiensedgwick
 #
 
 function create() {
     # ask the user what kind of project they would like to set up
-    PS3="Please select what type of project you would like to create (1-4): "
+    echo "*****************************************************************"
+    echo ""
+    echo "Please select what type of project you would like to create:"
+    echo ""
+    echo "*****************************************************************"
+    PS3="You can use the keys 1-4 to make a selection: "
     select i in react nextjs gatsby exit
     do
         case $i in
