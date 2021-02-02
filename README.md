@@ -8,15 +8,19 @@ A simple bash script to automate creating a new React based project, creating an
 ## Getting Started:
 
 Clone the repository:
+
 `git clone https://github.com/damiensedgwick/not-create-react-app.git`
 
 Change directory into the project folder and move create script to users bin folder:
+
 `cd not-create-react-app && mv create /Users/user/bin`
 
 Change script permissions so that you can execute it:
+
 `chmod +x /Users/user/bin/create`
 
 Make sure your bin folder is exported to path:
+
 `echo "export PATH="$PATH:/Users/user/bin/"" >> .bashrc`
 
 You should now be able to run `create project-name` from your command line and go through the steps of choosing a framework for your project, pushing to github and opening vscode with just one command.
