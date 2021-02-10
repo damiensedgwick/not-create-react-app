@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+// const projectPath = "/Users/user/projects/directory/" // Change this line to match the path to your projects.
+
 func main() {
 	args := os.Args[1:]
 
