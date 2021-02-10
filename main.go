@@ -13,14 +13,12 @@ func main() {
 	// Prints help menu if no project name is given.
 	if len(args) <= 0 {
 		help()
-
 		return
 	}
 
 	// Passes args through to create function so that a new project can be created.
 	if len(args) >= 1 {
 		create(args)
-
 		return
 	}
 }
@@ -29,7 +27,7 @@ func main() {
 func help() {
 	fmt.Println("\nUsage:")
 	fmt.Println("")
-	fmt.Println("create <project-name> 			: Creates new project")
+	fmt.Println("create <project-name> 		: Creates new project")
 	fmt.Println("")
 	fmt.Println("create <project-name> -t 		: Creates a new project using TypeScript")
 	fmt.Println("")
